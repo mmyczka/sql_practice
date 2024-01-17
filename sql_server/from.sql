@@ -8,21 +8,26 @@ SELECT 1 AS one, 'two' AS two -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
--- Retrieve the:
--- - CustomerID and ContactName from the Customers table who have placed orders, 
+-- Retrieve:
+-- - the CustomerID and ContactName from the Customers table who have placed orders, 
 -- - along with the corresponding OrderID and OrderDate.
 SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four
 ),
 
 ex_iii AS ( 
--- Command
-SELECT 1 AS one
+-- Retrieve:
+-- - all CustomerID and ContactName from the Customers table,
+-- - the corresponding OrderID and OrderDate if available.
+SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four
 ),
 
 
 ex_iv AS ( 
--- Command
-SELECT 1 AS one
+-- Retrieve:
+-- - all CustomerID and ContactName from the Customers table,
+-- - the corresponding OrderID and OrderDate if available,
+-- - the FirstName and LastName of an Employee if available.
+SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four, 'five' AS five, 'six' AS six
 ),
 
 ex_v AS ( 
@@ -78,11 +83,16 @@ INNER JOIN Orders O ON C.CustomerID = O.CustomerID
 ),
 
 ex_iii_answer AS (
-SELECT 2 AS answer
+SELECT C.CustomerID, C.ContactName, O.OrderID, O.OrderDate
+FROM Customers C
+	LEFT JOIN Orders O ON C.CustomerID = O.CustomerID
 ),
 
 ex_iv_answer AS(
-SELECT 2 AS answer
+SELECT C.CustomerID, C.ContactName, O.OrderID, O.OrderDate, E.FirstName, E.LastName
+FROM Customers C
+	LEFT JOIN Orders O ON C.CustomerID = O.CustomerID
+	LEFT JOIN Employees E ON O.EmployeeID = E.EmployeeID
 ),
 
 ex_v_answer AS (
