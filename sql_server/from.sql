@@ -3,8 +3,8 @@ GO
 
 WITH 
 ex_i AS (
--- Command
-SELECT 1 AS one -- Replace this with your solution.
+-- Retrieve the CustomerID and ContactName from the Customers table.
+SELECT 1 AS one, 'two' AS two -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
@@ -65,7 +65,8 @@ SELECT 1 AS one
 
 
 ex_i_answer AS (
-SELECT 2 AS answer
+SELECT CustomerID, ContactName
+FROM Customers
 ),
 
 ex_ii_answer AS (
