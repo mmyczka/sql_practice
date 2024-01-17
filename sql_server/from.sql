@@ -8,8 +8,10 @@ SELECT 1 AS one, 'two' AS two -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
--- Command
-SELECT 1 AS one
+-- Retrieve the:
+-- - CustomerID and ContactName from the Customers table who have placed orders, 
+-- - along with the corresponding OrderID and OrderDate.
+SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four
 ),
 
 ex_iii AS ( 
@@ -70,7 +72,9 @@ FROM Customers
 ),
 
 ex_ii_answer AS (
-SELECT 2 AS answer
+SELECT C.CustomerID, C.ContactName, O.OrderID, O.OrderDate
+FROM Customers C
+INNER JOIN Orders O ON C.CustomerID = O.CustomerID
 ),
 
 ex_iii_answer AS (
