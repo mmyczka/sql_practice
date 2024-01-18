@@ -25,14 +25,17 @@ SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four
 ex_iv AS ( 
 -- Retrieve:
 -- - all CustomerID and ContactName from the Customers table,
--- - the corresponding OrderID and OrderDate if available,
--- - the FirstName and LastName of an Employee if available.
+-- - corresponding OrderID and OrderDate if available,
+-- - FirstName and LastName of an Employee if available.
 SELECT 1 AS one, 'two' AS two, 3 AS three, 4 AS four, 'five' AS five, 'six' AS six
 ),
 
 ex_v AS ( 
--- Command
-SELECT 1 AS one
+-- Retrieve:
+-- - CustomerID, ContactName, and Country from the Customers table, 
+-- - corresponding ProductName,
+-- - corresponding Quantity.
+SELECT 1 AS one, 'two' AS two, 'three' AS three, 'four' AS four, 5 AS five
 ),
 
 ex_vi AS ( 
@@ -96,7 +99,11 @@ FROM Customers C
 ),
 
 ex_v_answer AS (
-SELECT 2 AS answer
+SELECT C.CustomerID, C.ContactName, C.Country, P.ProductName, OD.Quantity
+FROM Customers C
+JOIN Orders O ON C.CustomerID = O.CustomerID
+JOIN [Order Details] OD ON O.OrderID = OD.OrderID
+JOIN Products P ON OD.ProductID = P.ProductID
 ),
 
 ex_vi_answer AS (
