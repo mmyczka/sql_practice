@@ -39,8 +39,8 @@ SELECT 1 AS one, 'two' AS two, 'three' AS three, 'four' AS four, 5 AS five
 ),
 
 ex_vi AS ( 
--- Command
-SELECT 1 AS one
+-- Generate a Cartesian product from the Numbers (1,2,3) and Letters (A,B,C)
+SELECT 1 AS One, 'two' AS Two
 ),
 
 ex_vii AS ( 
@@ -107,7 +107,10 @@ JOIN Products P ON OD.ProductID = P.ProductID
 ),
 
 ex_vi_answer AS (
-SELECT 2 AS answer
+SELECT * FROM
+  (VALUES (1), (2), (3)) AS Numbers (Number)
+CROSS JOIN
+  (VALUES ('A'), ('B'), ('C')) AS Letters (Letter)
 ),
 
 ex_vii_answer AS (
