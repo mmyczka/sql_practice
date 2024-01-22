@@ -3,8 +3,9 @@ GO
 
 WITH 
 ex_i AS (
--- Command
+-- Count rows in a table Orders
 SELECT 1 AS one -- Replace this with your solution.
+
 ),
 
 ex_ii AS ( 
@@ -65,7 +66,8 @@ SELECT 1 AS one
 
 
 ex_i_answer AS (
-SELECT 2 AS answer
+SELECT COUNT(*) AS RowsNumber
+FROM dbo.Orders
 ),
 
 ex_ii_answer AS (
