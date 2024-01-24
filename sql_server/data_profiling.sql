@@ -20,7 +20,7 @@ SELECT 1 AS one
 
 
 ex_iv AS ( 
--- Command
+-- Find the average subtotal value from Order Subtotal.
 SELECT 1 AS one
 ),
 
@@ -76,12 +76,13 @@ FROM dbo.[Order Subtotals]
 ),
 
 ex_iii_answer AS (
-SELECT MAX(Subtotal) AS MinSubtotal
+SELECT MAX(Subtotal) AS MaxSubtotal
 FROM dbo.[Order Subtotals]
 ),
 
 ex_iv_answer AS(
-SELECT 2 AS answer
+SELECT AVG(Subtotal) AS AvgSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_v_answer AS (
