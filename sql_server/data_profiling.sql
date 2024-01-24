@@ -14,7 +14,7 @@ SELECT 1 AS one
 ),
 
 ex_iii AS ( 
--- Command
+-- Find the minimum subtotal value from Order Subtotal.
 SELECT 1 AS one
 ),
 
@@ -71,12 +71,13 @@ FROM dbo.Orders
 ),
 
 ex_ii_answer AS (
-SELECT min(Subtotal) AS MinSubtotal
+SELECT MIN(Subtotal) AS MinSubtotal
 FROM dbo.[Order Subtotals]
 ),
 
 ex_iii_answer AS (
-SELECT 2 AS answer
+SELECT MAX(Subtotal) AS MinSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_iv_answer AS(
