@@ -9,23 +9,23 @@ SELECT 1 AS one -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
--- Find the minimum subtotal value from Order Subtotal.
+-- Find the minimum value in the Order Subtotal table.
 SELECT 1 AS one 
 ),
 
 ex_iii AS ( 
--- Find the minimum subtotal value from Order Subtotal.
+-- Find the maximum value in the Order Subtotal table.
 SELECT 1 AS one
 ),
 
 
 ex_iv AS ( 
--- Find the average subtotal value from Order Subtotal.
+-- Calculate the average value of the Order Subtotal.
 SELECT 1 AS one
 ),
 
 ex_v AS ( 
--- Command
+-- Calculate the standard deviation from the Order Subtotal table.
 SELECT 1 AS one
 ),
 
@@ -86,7 +86,8 @@ FROM dbo.[Order Subtotals]
 ),
 
 ex_v_answer AS (
-SELECT 2 AS answer
+SELECT STDEV(Subtotal) AS StdevSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_vi_answer AS (
