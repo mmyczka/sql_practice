@@ -9,8 +9,8 @@ SELECT 1 AS one -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
--- Command
-SELECT 1 AS one
+-- Find the minimum subtotal value from Order Subtotal.
+SELECT 1 AS one 
 ),
 
 ex_iii AS ( 
@@ -71,7 +71,8 @@ FROM dbo.Orders
 ),
 
 ex_ii_answer AS (
-SELECT 2 AS answer
+SELECT min(Subtotal) AS MinSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_iii_answer AS (
