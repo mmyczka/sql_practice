@@ -30,7 +30,7 @@ SELECT 1 AS one
 ),
 
 ex_vi AS ( 
--- Command
+-- Calculate the variance from the Order Subtotal table.
 SELECT 1 AS one
 ),
 
@@ -91,7 +91,8 @@ FROM dbo.[Order Subtotals]
 ),
 
 ex_vi_answer AS (
-SELECT 2 AS answer
+SELECT VAR(Subtotal) AS VarSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_vii_answer AS (
