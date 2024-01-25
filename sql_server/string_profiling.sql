@@ -3,8 +3,9 @@ GO
 
 WITH 
 ex_i AS (
--- Command
+-- Find the length of the shortest string in the Product.ProductName.
 SELECT 1 AS one -- Replace this with your solution.
+
 ),
 
 ex_ii AS ( 
@@ -65,7 +66,8 @@ SELECT 1 AS one
 
 
 ex_i_answer AS (
-SELECT 2 AS answer
+SELECT MIN(LEN(ProductName)) AS ShortestString
+FROM dbo.Products
 ),
 
 ex_ii_answer AS (
