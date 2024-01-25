@@ -1,6 +1,9 @@
 USE Northwind
 GO
 
+DECLARE		@min int = 10,
+			@max int = 50;
+
 WITH 
 ex_i AS (
 -- Count rows in a table Orders
@@ -51,8 +54,11 @@ SELECT 'one' AS One, 'two' AS Two
 ),
 
 ex_ix AS ( 
--- Command
-SELECT 1 AS one
+-- Return how many rows of Products.UnitInStock fall within and outside that range (@min, @max):
+-- - Below range
+-- - Within range
+-- - Above range
+SELECT 1 AS One, 2 AS Two, 3 AS Three
 ),
 
 ex_x AS ( 
@@ -118,7 +124,11 @@ FROM dbo.Products
 ),
 
 ex_ix_answer AS (
-SELECT 2 AS answer
+SELECT 
+    SUM(CASE WHEN UnitsInStock < @min THEN 1 ELSE 0 end) AS BelowRange,
+    SUM(CASE WHEN UnitsInStock BETWEEN @min and @max THEN 1 ELSE 0 end) AS WithinRange,
+    SUM(CASE WHEN UnitsInStock > @max THEN 1 ELSE 0 end) AS AboveRange
+FROM Products
 ),
 
 ex_x_answer AS (
