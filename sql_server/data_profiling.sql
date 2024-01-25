@@ -14,29 +14,34 @@ SELECT 1 AS one
 ),
 
 ex_iii AS ( 
--- Find the maximum value in the Order Subtotal table.
+-- Find the maximum value in the Order Subtotal view.
 SELECT 1 AS one
 ),
 
 
 ex_iv AS ( 
--- Calculate the average value of the Order Subtotal.
+-- Calculate the average value of the Order Subtotal view.
 SELECT 1 AS one
 ),
 
 ex_v AS ( 
--- Calculate the standard deviation from the Order Subtotal table.
+-- Calculate the standard deviation from the Order Subtotal view.
 SELECT 1 AS one
 ),
 
 ex_vi AS ( 
--- Calculate the variance from the Order Subtotal table.
+-- Calculate the variance from the Order Subtotal view.
 SELECT 1 AS one
 ),
 
 ex_vii AS ( 
--- Command
-SELECT 1 AS one
+-- Calculate using the view Order Subtotal:
+-- - Minimum value,
+-- - Maximum value,
+-- - Average value,
+-- - Standard deviation
+-- - Variance.
+SELECT 1 AS One, 2 AS Two, 3 AS Three, 4 AS Four, 5 AS Five
 ),
 
 ex_viii AS ( 
@@ -96,7 +101,13 @@ FROM dbo.[Order Subtotals]
 ),
 
 ex_vii_answer AS (
-SELECT 2 AS answer
+SELECT 
+	MIN(Subtotal) AS MinSubtotal,
+	MAX(Subtotal) AS MaxSubtotal,
+	AVG(Subtotal) AS AvgSubtotal,
+	STDEV(Subtotal) AS StdevSubtotal,
+	VAR(Subtotal) AS VarSubtotal
+FROM dbo.[Order Subtotals]
 ),
 
 ex_viii_answer AS (
