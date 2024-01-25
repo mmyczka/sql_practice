@@ -45,8 +45,9 @@ SELECT 1 AS One, 2 AS Two, 3 AS Three, 4 AS Four, 5 AS Five
 ),
 
 ex_viii AS ( 
--- Command
-SELECT 1 AS one
+-- Return the first and last strings when sorted alphabetically based on Product.ProductName:
+SELECT 'one' AS One, 'two' AS Two
+
 ),
 
 ex_ix AS ( 
@@ -111,7 +112,9 @@ FROM dbo.[Order Subtotals]
 ),
 
 ex_viii_answer AS (
-SELECT 2 AS answer
+SELECT MIN(ProductName) AS FirstProductName, 
+       MAX(ProductName) AS LastProductName
+FROM dbo.Products
 ),
 
 ex_ix_answer AS (
