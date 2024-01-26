@@ -25,7 +25,7 @@ SELECT 1 AS one
 ),
 
 ex_v AS ( 
--- Command
+-- Find the variance of string length in the Product.ProductName.
 SELECT 1 AS one
 ),
 
@@ -86,7 +86,8 @@ FROM dbo.Products
 ),
 
 ex_v_answer AS (
-SELECT 2 AS answer
+SELECT VAR(LEN(ProductName)) AS StringLengthVar
+FROM dbo.Products
 ),
 
 ex_vi_answer AS (
