@@ -20,7 +20,7 @@ SELECT 1 AS one
 
 
 ex_iv AS ( 
--- Command
+-- Find the standard deviation of string length in the Product.ProductName.
 SELECT 1 AS one
 ),
 
@@ -81,7 +81,8 @@ FROM dbo.Products
 ),
 
 ex_iv_answer AS(
-SELECT 2 AS answer
+SELECT STDEV(LEN(ProductName)) AS StringLengthStdev
+FROM dbo.Products
 ),
 
 ex_v_answer AS (
