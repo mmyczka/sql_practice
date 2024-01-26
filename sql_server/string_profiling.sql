@@ -14,7 +14,7 @@ SELECT 1 AS one
 ),
 
 ex_iii AS ( 
--- Command
+-- Find the average string length in the Product.ProductName.
 SELECT 1 AS one
 ),
 
@@ -76,7 +76,8 @@ FROM dbo.Products
 ),
 
 ex_iii_answer AS (
-SELECT 2 AS answer
+SELECT AVG(LEN(ProductName)) AS StringLengthAvg
+FROM dbo.Products
 ),
 
 ex_iv_answer AS(
