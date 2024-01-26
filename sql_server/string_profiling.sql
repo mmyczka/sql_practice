@@ -30,8 +30,13 @@ SELECT 1 AS one
 ),
 
 ex_vi AS ( 
--- Command
-SELECT 1 AS one
+-- Find, in the CustomerDemographics.CustomerDesc:
+-- - length of the shortest string
+-- - length of the longest string
+-- - average string length
+-- - standard deviation of string length
+-- - variance of string length
+SELECT 1 AS one, 2 AS two, 3 AS three, 4 AS four, 5 AS five
 ),
 
 ex_vii AS ( 
@@ -91,7 +96,13 @@ FROM dbo.Products
 ),
 
 ex_vi_answer AS (
-SELECT 2 AS answer
+SELECT 
+	MIN(LEN(CompanyName)) AS StirngLengthMin,
+	MAX(LEN(CompanyName)) AS StringLengthMax,
+	AVG(LEN(CompanyName)) AS StringLengthAvg,
+	STDEV(LEN(CompanyName)) AS StringLengthStdev,
+	VAR(LEN(CompanyName)) AS StringLengthVar
+FROM dbo.Customers
 ),
 
 ex_vii_answer AS (
