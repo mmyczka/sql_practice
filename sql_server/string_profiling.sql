@@ -9,7 +9,7 @@ SELECT 1 AS one -- Replace this with your solution.
 ),
 
 ex_ii AS ( 
--- Command
+-- Find the length of the longest string in the Product.ProductName.
 SELECT 1 AS one
 ),
 
@@ -66,12 +66,13 @@ SELECT 1 AS one
 
 
 ex_i_answer AS (
-SELECT MIN(LEN(ProductName)) AS ShortestString
+SELECT MIN(LEN(ProductName)) AS StringLengthMin
 FROM dbo.Products
 ),
 
 ex_ii_answer AS (
-SELECT 2 AS answer
+SELECT MAX(LEN(ProductName)) AS StringLengthMax
+FROM dbo.Products
 ),
 
 ex_iii_answer AS (
