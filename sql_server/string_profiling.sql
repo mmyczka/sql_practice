@@ -3,29 +3,29 @@ GO
 
 WITH 
 ex_i AS (
--- Find the length of the shortest string in the Product.ProductName.
+-- Find the length of the shortest string in the Products.ProductName.
 SELECT 1 AS one -- Replace this with your solution.
 
 ),
 
 ex_ii AS ( 
--- Find the length of the longest string in the Product.ProductName.
+-- Find the length of the longest string in the Products.ProductName.
 SELECT 1 AS one
 ),
 
 ex_iii AS ( 
--- Find the average string length in the Product.ProductName.
+-- Find the average string length in the Products.ProductName.
 SELECT 1 AS one
 ),
 
 
 ex_iv AS ( 
--- Find the standard deviation of string length in the Product.ProductName.
+-- Find the standard deviation of string length in the Products.ProductName.
 SELECT 1 AS one
 ),
 
 ex_v AS ( 
--- Find the variance of string length in the Product.ProductName.
+-- Find the variance of string length in the Products.ProductName.
 SELECT 1 AS one
 ),
 
@@ -40,8 +40,10 @@ SELECT 1 AS one, 2 AS two, 3 AS three, 4 AS four, 5 AS five
 ),
 
 ex_vii AS ( 
--- Command
-SELECT 1 AS one
+-- Find string length distribution in the Products.ProductName:
+-- - lists all the distinct lengths of ProductName,
+-- - how many rows have ProductName with that length.
+SELECT 1 AS one, 2 AS two
 ),
 
 ex_viii AS ( 
@@ -106,7 +108,10 @@ FROM dbo.Customers
 ),
 
 ex_vii_answer AS (
-SELECT 2 AS answer
+SELECT LEN(ProductName) AS name_length,
+       count(*) AS row_count
+FROM Products
+GROUP BY LEN(ProductName)
 ),
 
 ex_viii_answer AS (
