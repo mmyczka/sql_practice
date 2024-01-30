@@ -52,8 +52,8 @@ SELECT 'one' AS One
 ),
 
 ex_ix AS ( 
--- Command
-SELECT 1 AS one
+-- Find the longest names in Products.ProductName
+SELECT 'one' AS One
 ),
 
 ex_x AS ( 
@@ -123,7 +123,11 @@ WHERE LEN(ProductName) = (
 ),
 
 ex_ix_answer AS (
-SELECT 2 AS answer
+SELECT ProductName AS LongestProductName
+FROM Products
+WHERE LEN(ProductName) = (
+	SELECT MAX(LEN(ProductName)) AS maxName
+	FROM Products)
 ),
 
 ex_x_answer AS (
