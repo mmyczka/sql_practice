@@ -47,8 +47,8 @@ SELECT 1 AS one, 2 AS two
 ),
 
 ex_viii AS ( 
--- Command
-SELECT 1 AS one
+-- Find the shortest names in Products.ProductName
+SELECT 'one' AS One
 ),
 
 ex_ix AS ( 
@@ -115,7 +115,11 @@ GROUP BY LEN(ProductName)
 ),
 
 ex_viii_answer AS (
-SELECT 2 AS answer
+SELECT ProductName AS LongestProductName
+FROM Products
+WHERE LEN(ProductName) = (
+	SELECT MIN(LEN(ProductName)) AS maxName
+	FROM Products)
 ),
 
 ex_ix_answer AS (
