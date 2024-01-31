@@ -57,8 +57,8 @@ SELECT 'one' AS One
 ),
 
 ex_x AS ( 
--- Command
-SELECT 1 AS one
+-- Find the most popular cities in Customers.City
+SELECT 'one' AS One
 ),
 
 ex_xi AS ( 
@@ -131,7 +131,17 @@ WHERE LEN(ProductName) = (
 ),
 
 ex_x_answer AS (
-SELECT 2 AS answer
+SELECT City
+FROM Customers
+GROUP BY City
+HAVING COUNT(*) = (
+	SELECT MAX(Cnt) AS MaxCnt
+	FROM (
+		SELECT COUNT(*) AS Cnt 
+		FROM Customers 
+		GROUP BY City
+		) AS FindMax
+	)
 ),
 
 ex_xi_answer AS (
