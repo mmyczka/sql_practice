@@ -62,8 +62,8 @@ SELECT 1 AS One, 2 AS Two, 3 AS Three
 ),
 
 ex_x AS ( 
--- Command
-SELECT 1 AS one
+-- Find all distinct city names with information how many rows have this city in Orders.ShipCity 
+SELECT 'one' AS One, 2 AS Two
 ),
 
 ex_xi AS ( 
@@ -132,7 +132,12 @@ FROM Products
 ),
 
 ex_x_answer AS (
-SELECT 2 AS answer
+SELECT 
+    ShipCity AS value, 
+    COUNT(*) row_count
+from Orders
+WHERE ShipCity IS NOT null
+GROUP BY ShipCity
 ),
 
 ex_xi_answer AS (
