@@ -62,7 +62,7 @@ SELECT 'one' AS One
 ),
 
 ex_xi AS ( 
--- Command
+-- Find the number of unique city names in Customers.City
 SELECT 1 AS one
 ),
 
@@ -145,7 +145,9 @@ HAVING COUNT(*) = (
 ),
 
 ex_xi_answer AS (
-SELECT 2 AS answer
+SELECT COUNT(DISTINCT City) AS unique_citys_count
+FROM Customers
+WHERE City IS NOT NULL
 ),
 
 ex_xii_answer AS (
