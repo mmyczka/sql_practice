@@ -67,8 +67,8 @@ SELECT 'one' AS One, 2 AS Two
 ),
 
 ex_xi AS ( 
--- Command
-SELECT 1 AS one
+-- Find how many rows are null for Orders.ShippedDate
+SELECT 'one' AS One, 2 AS Two
 ),
 
 ex_xii AS ( 
@@ -141,7 +141,15 @@ GROUP BY ShipCity
 ),
 
 ex_xi_answer AS (
-SELECT 2 AS answer
+SELECT ShippedDate, COUNT(*) AS cnt
+FROM
+	(SELECT
+		CASE WHEN ShippedDate IS NULL 
+			THEN 'Null'
+			ELSE 'Date'
+			END AS ShippedDate
+	FROM Orders) IsEmpty
+GROUP BY ShippedDate
 ),
 
 ex_xii_answer AS (
